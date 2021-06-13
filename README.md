@@ -29,3 +29,12 @@ BUILD FAILED in 9m 54s
 2. See that it runs out of memory (or uses a lot of memory depending on system setup?)
 
 If you change the number of messages in `src/main/proto/hello_world.proto` you can find a threshold where the size is ok.
+
+
+# Compare with Java protos
+
+1. `git checkout java-api-only`
+2. Run `./gradlew build`
+
+For me this completes in 13s from cold build (`rm -rf ./build`). Compare with crashing out of memory after nearly 
+10 minutes with Kotlin protos

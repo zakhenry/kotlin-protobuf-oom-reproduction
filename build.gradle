@@ -43,9 +43,9 @@ protobuf {
 //                id("grpc")
 //                id("grpckt")
 //            }
-            it.builtins {
-                kotlin {}
-            }
+//            it.builtins {
+//                kotlin {}
+//            }
         }
     }
 }
