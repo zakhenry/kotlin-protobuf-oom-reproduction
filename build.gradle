@@ -1,0 +1,51 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+    id "com.google.protobuf" version "0.8.16"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    implementation "com.google.protobuf:protobuf-gradle-plugin:0.8.16"
+    implementation "com.google.protobuf:protobuf-java:3.17.3"
+    implementation "com.google.protobuf:protobuf-kotlin:3.17.3"
+}
+
+
+protobuf {
+    protoc {
+        // The artifact spec for the Protobuf Compiler
+        artifact = "com.google.protobuf:protoc:3.17.3"
+    }
+
+
+//    plugins {
+//        id("grpc") {
+//            artifact = "io.grpc:protoc-gen-grpc-java:$grpcVersion"
+//        }
+//        id("grpckt") {
+//            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.1.0:jdk7@jar"
+//        }
+//    }
+    generateProtoTasks {
+
+        all().forEach {
+
+
+//            it.plugins {
+//                id("grpc")
+//                id("grpckt")
+//            }
+            it.builtins {
+                kotlin {}
+            }
+        }
+    }
+}
